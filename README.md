@@ -33,9 +33,7 @@ This project fetches and displays data from multiple endpoints including Users, 
 |----------------------------|-----------------------------|----------------------------|
 | ![](screenshots/users.png) | ![](screenshots/quotes.png) | ![](screenshots/posts.png) |
 
-![posts.png](../../../Desktop/screenshots/posts.png)
-![quotes.png](../../../Desktop/screenshots/quotes.png)
-![users.png](../../../Desktop/screenshots/users.png)
+
 ---
 
 ## 📂 Project Structure
