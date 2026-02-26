@@ -83,16 +83,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: users.length,
                       itemBuilder: (context, index) {
                         final user = users[index];
-                        return ListTile(
-                          leading: CircleAvatar(
-                            backgroundImage: NetworkImage(user.image),
+                        return Card(
+                          elevation: 3,
+                          child: Padding(
+                            padding: EdgeInsets.all(16),
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage: NetworkImage(user.image),
+                              ),
+                              title: Text(
+                                '${user.firstName} ${user.lastName}',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              subtitle: Text('${user.email} • ${user.university}'),
+                              trailing: Text('Age: ${user.age}'),
+                            ),
                           ),
-                          title: Text(
-                            '${user.firstName} ${user.lastName}',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          subtitle: Text('${user.email} • ${user.university}'),
-                          trailing: Text('Age: ${user.age}'),
                         );
                       },
                     );
@@ -115,18 +121,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: quotes.length,
                       itemBuilder: (context, index) {
                         final quote = quotes[index];
-                        return ListTile(
-                          leading: Text('${quote.id}'),
-                          title: Text(
-                            '${quote.author}',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
+                        return Card(
+                          elevation: 3,
+                          child: Padding(
+                            padding: EdgeInsets.all(16),
+                            child: ListTile(
+                              leading: Text('${quote.id}'),
+                              title: Text(
+                                '${quote.author}',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              subtitle: Text(
+                                '${quote.quote}',
+                                textAlign: TextAlign.justify,
+                              ),
                             ),
-                          ),
-                          subtitle: Text(
-                            '${quote.quote}',
-                            textAlign: TextAlign.justify,
                           ),
                         );
                       },
@@ -150,55 +162,63 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: posts.length,
                       itemBuilder: (context, index) {
                         final post = posts[index];
-                        return ListTile(
-                          leading: Text('${post.id}'),
-                          title: Padding(
-                            padding: EdgeInsets.only(bottom: 5, top: 8),
-                            child: Text(
-                              '${post.title}',
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                        return Card(
+                          elevation: 5,
+                          child: Card(
+                            child: Padding(
+                              padding: EdgeInsets.all(16),
+                              child: ListTile(
+                                leading: Text('${post.id}'),
+                                title: Padding(
+                                  padding: EdgeInsets.only(bottom: 5, top: 8),
+                                  child: Text(
+                                    '${post.title}',
+                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                subtitle: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '${post.body}',
+                                      textAlign: TextAlign.justify,
+                                    ),
+                                    Text(
+                                      '${post.tags}',
+                                      style: TextStyle(fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(height: 10),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Likes:: ${post.reactions.likes}',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 20),
+                                        Text(
+                                          'Dislikes::${post.reactions.dislikes}',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 20),
+                                        Text(
+                                          'Views:: ${post.views}',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
-                          ),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                '${post.body}',
-                                textAlign: TextAlign.justify,
-                              ),
-                              Text(
-                                '${post.tags}',
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(height: 10),
-                              Row(
-                                children: [
-                                  Text(
-                                    'Likes:: ${post.reactions.likes}',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 20),
-                                  Text(
-                                    'Dislikes::${post.reactions.dislikes}',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 20),
-                                  Text(
-                                    'Views:: ${post.views}',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
                           ),
                         );
                       },
