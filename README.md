@@ -29,9 +29,9 @@ This project fetches and displays data from multiple endpoints including Users, 
 ├── quotes.png
 └── posts.png
 
-| Users Screen               | Quotes Screen               | Posts Screen               |
-|----------------------------|-----------------------------|----------------------------|
-| ![](screenshots/users.png) | ![](screenshots/quotes.png) | ![](screenshots/posts.png) |
+| Users Screen               | Quotes Screen               | Posts Screen            |
+|----------------------------|-----------------------------|-------------------------|
+| ![](screenshots/users.png) | ![](screenshots/quotes.png) | ![](screenshots/p4.png) |
 
 
 ---
